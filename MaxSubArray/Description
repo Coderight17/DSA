@@ -1,1 +1,5 @@
+Given an integer array nums, find the subarray with the largest sum, and return its sum.
+Follow up: If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.
 
+I have given the O(n) sliding window solution and also the divide and conquer solution.
+Some codes might contain only functions, not the entire code, unless I have modified it by the time you read this.
