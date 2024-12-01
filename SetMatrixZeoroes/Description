@@ -1,0 +1,19 @@
+DESCRIPTION:-
+DSA 1:-
+
+Leetcode 73)
+Given an m x n integer matrix matrix, if an element is 0, set its entire row and column to 0's.
+You must do it in place.
+
+THis is the problem. I do it using the brute force approach using no extra space, but having like O(n3) time complexity using a better approach using some
+extra space but lesser time complexity, and then finally, an optimal approach only using O(1) space and O(mn) time complexity.
+
+
+Here are some of the things to be noted about the brute force approach:-
+1) It passes 200/202 test cases in leetcode
+2) The test cases it does not pass includes -1 in them, and according to my code, the elements to be changed to 0 are marked with -1 and hence, the ones which were
+originally marked as -1 are also marked as 0, leading to 2 incorrect test cases.
+3) I will try to improve my code to pass those test cases as well, the idea I have right now involves changing the data type of the marker in order to prevent overlap,
+like put 'a' instead of -1 and then change all the cells containing 'a' to 0.
+
+If this or any other approach works for anybody, do let me know.
