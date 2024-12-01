@@ -1,1 +1,46 @@
+Leetcode 118
+Given an integer numRows, return the first numRows of Pascal's triangle
+In Pascal's triangle, each number is the sum of the two numbers directly above it as shown:
+
+This is how I arrived at the solution of the problem:-
+
+
+
+So bruh, this Pascal's triangle in Python.
+
+1
+1 1
+1 2 1
+1 3 3 1
+1 4 6 4 1
+1 5 10 10 5 1
+.
+.
+.
+
+So, the pattern that I observe here is that(no of entries in a row), 
+row0-> 1
+row1-> 2
+row2-> 3
+.
+.
+
+Another pattern that I observe is, row i has 1 at 0th position and the ith position.
+
+In the middle, matrix[i][j] = matrix[i-1][j] + matrix[i-1][j-1]
+
+So, cracked it. Now, I need to code it.
+
+class Solution:
+    def generate(self, numRows: int) -> List[List[int]]:
+        pascals_triangle = []
+        for i in range(numRows):
+            row = [0]*(i+1)
+            pascals_triangle.append(row)
+            for j in range(len(row)):
+                if j == 0 or j== i:
+                    pascals_triangle[i][j] = 1
+                else:
+                    pascals_triangle[i][j] = pascals_triangle[i-1][j] + pascals_triangle[i-1][j-1]
+        return pascals_triangle    
 
