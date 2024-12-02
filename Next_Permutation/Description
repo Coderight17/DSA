@@ -1,1 +1,29 @@
+Leetcode 31, SDE 3
+A permutation of an array of integers is an arrangement of its members into a sequence or linear order.
 
+For example, for arr = [1,2,3], the following are all the permutations of arr: [1,2,3], [1,3,2], [2, 1, 3], [2, 3, 1], [3,1,2], [3,2,1].
+The next permutation of an array of integers is the next lexicographically greater permutation of its integer. More formally, if all the permutations of the array are sorted in one container according to their 
+lexicographical order, then the next permutation of that array is the permutation that follows it in the sorted container. If such arrangement is not possible, the array must be rearranged as the lowest 
+possible order (i.e., sorted in ascending order).
+
+For example, the next permutation of arr = [1,2,3] is [1,3,2].
+Similarly, the next permutation of arr = [2,3,1] is [3,1,2].
+While the next permutation of arr = [3,2,1] is [1,2,3] because [3,2,1] does not have a lexicographical larger rearrangement.
+Given an array of integers nums, find the next permutation of nums.
+
+The replacement must be in place and use only constant extra memory.
+
+Solution:-
+So, the aim is to find the next permutation of an array. Here, the way to do it is to follow the following steps:-
+1) Traverse the list from the end(from second last index), and then check if there is any element which is less than the element succeeding it(if nums[i]<nums[i+1]). If there is, then a next permutation is possible,
+   and it is not the last permutation. There is some degree of sortedness still in the list. In the last permutation, the elements will be in reverse order, and hence, no nums[i]<nums[i+1] and nums[i]>nums[i+1] in 
+   all cases.
+2)If there is no such element(no next permutation, array is in descending order), reverse the array to get it in the lowest possible order or the ascending order.The work is done for that case.
+  We check this by setting ind to -1 before traversing and setting ind to that element's index if such an element is found. If not found, ind will still be -1 and if ind is -1, we reverse the list.
+3) If there is such an element, ind is set to that element's index.
+4) Now, we find the smallest element greater than nums[ind] to the right of nums[ind].(from nums[ind+1] to nums[len(nums)-1]. We do this by traversing the array in reverse and then breaking the loop if any element
+   which is greater than nums[ind] is found. Since all the elements to the right of nums[ind] are in descending order, the smallest element greater than nums[ind] will be found first.
+5)Now, swap nums[ind] and nums[i](the smallest element larger than nums[ind] to the right of it).
+6)Now, another thing we do know is that the elements to the right of ind is still in descending order even after swapping. So, in order to get the next permutation, we have to get them in  ascending order. Hence,
+  we reverse the list from nums[ind+1] to nums[len(nums)-1].
+7)That's it. Just put the 7th point for 'Thala for a reason'.
