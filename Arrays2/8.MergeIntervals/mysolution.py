@@ -6,7 +6,6 @@ class Solution:
         while i< n:
             if i+1 <n :
                 if intervals[i][1] >= intervals[i+1][0]:
-                        # intervals[i+1][0] = intervals[i][0]
                         intervals[i][1] = max(intervals[i][1], intervals[i+1][1])
                         del intervals[i+1]
                         n = n-1
