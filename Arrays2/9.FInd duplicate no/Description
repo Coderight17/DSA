@@ -1,1 +1,11 @@
+DSA 10/ Leetcode 287: Find the duplicate no
+Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.
+There is only one repeated number in nums, return this repeated number.
+You must solve the problem without modifying the array nums and using only constant extra space.
 
+
+Given an array of n+1 integers, with all elements in the range [1, n] (both inclusive, I mean anybody knows square brackets are notation for both inclusive, but still..)
+we need to find which is the one number among [1,n] that repeats in the array. There has to be one that repeats due to pigeonhole principle. 
+
+Solution:-
+The first approach is the simple brute force approach where I take
