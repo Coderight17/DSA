@@ -26,3 +26,29 @@ This doesn't pass many test cases due to exceeding time limit.
 
 Here, I create a dictionary or a hash map frequencies, with the number being the key and the frequency of occurences the corresponding value. After addding all items
 to the dictionary, we traverse the dictionary to check if any element's frequency is greater than 1, and if yes, we return that element.
+
+class Solution:
+    def findDuplicate(self, nums: List[int]) -> int:
+        frequency = {}
+        for i in nums:
+            if i in frequency:
+                frequency[i] = frequency[i] + 1
+            else:
+                frequency[i] = 1
+        for i in frequency:
+            if frequency[i] > 1:
+                return i
+
+This uses O(n) extra space, so it can be problematic with large arrays, although it does pass all test cases. It has time complexity O(n) to traverse array, enter
+in dictionary, and another O(n) to later traverse the dictionary and check the frequency. Now that I think about it,  I feel we can finish it in tbe first loop itself,
+like if i in frequency, the element repeats and therefore, that is the element and we can return it then and there.
+
+class Solution:
+    def findDuplicate(self, nums: List[int]) -> int:
+        frequency = {}
+        for i in nums:
+            if i in frequency:
+                frequency[i] = frequency[i] + 1
+                return i
+            else:
+                frequency[i] = 1
