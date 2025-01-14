@@ -9,7 +9,20 @@ we need to find which is the one number among [1,n] that repeats in the array. T
 multiple times, all the nos from 1 to n need not be in the list, but the only thing is that there is only one number that repeats in the whole list. 
 
 Solution:-
+1)Brute force(No extra space, but O(n2) time complexity)
 The first approach is the simple brute force approach where I take one element i to iterate through the list from 0th index to (n-2)th index. In the inner loop, I 
 iterate j from i+1 to n-1th index, and if nums[i] == nums[j], return nums[i](or nums[j], both are the same). This approach uses no extra space, but O(n2) time complexity
 
+class Solution:
+    def findDuplicate(self, nums: List[int]) -> int:
+        for i in range(len(nums)-1):
+            for j in range(i+1, len(nums)):
+                if nums[i] == nums[j]:
+                    return nums[i]
+                    break
+This doesn't pass many test cases due to exceeding time limit.
 
+2) High space approach(Extra spacem but O(n) time complexity):
+
+Here, I create a dictionary or a hash map frequencies, with the number being the key and the frequency of occurences the corresponding value. After addding all items
+to the dictionary, we traverse the dictionary to check if any element's frequency is greater than 1, and if yes, we return that element.
