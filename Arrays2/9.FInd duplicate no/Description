@@ -52,3 +52,6 @@ class Solution:
                 return i
             else:
                 frequency[i] = 1
+Well I guess I can just use sets instead of dictionary for that. I am not writing a separate code for it also lol. How many should I keep on writing lol.
+
+3) Now, coming to the optimal solution,
