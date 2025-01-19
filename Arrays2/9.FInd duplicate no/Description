@@ -54,4 +54,45 @@ class Solution:
                 frequency[i] = 1
 Well I guess I can just use sets instead of dictionary for that. I am not writing a separate code for it also lol. How many should I keep on writing lol.
 
-3) Now, coming to the optimal solution,
+3)Coming to another approach, which takes O(nlogn) time complexity, we first sort the array and then we traverse through the array and check if nums[i] == nums[i+1]
+  for any i. If yes, we return nums[i] as that is the repeating number. Otherwise, it traverses through the array without returning anything and returns -1.
+
+  class Solution:
+    def findDuplicate(self, nums: List[int]) -> int:
+        nums.sort()
+        for i in range(len(nums)-1):
+            if nums[i] == nums[i+1]:
+                return nums[i]
+        return -1
+
+4) Now, coming to the optimal solution, we use Floyd's tortoise hare algorithm. This algorithm basically involves seeing this list as a linked list, with each entry
+   'pointing' to that number th index. ie 3 points to nums[3], if nums[3] = 1, then that points to nums[1] and so on. 
+
+Now, based on this, we create 2 pointers, slow and fast. Both of them are initially set to nums[0]. Both these pointers move in the linked list. The slow pointer
+moves one step at a time, while the fast pointer moves 2 steps at a time. If there is a cycle(which there will be as there is compulsorily a repeating number as
+given in the question, and thus, the second instance and the further instances(if there) for that particular number will point to the same entry that some other
+element has pointed to before itself, leading to a cycle), the slow and fast pointers will surely meet. The reason is, imagine 2 people are running around a circular
+ground, one person running twice as fast as the other person. Now, the faster person will surely lap around and meet the slower person at a particular point, as
+it is a circle and they have to keep running around the same path. As Cap said to Falcon, "On your left".  But if it was a straight path Cap and Sam(Falcon) were 
+running on, Cap would have kept going farther and farther away from Sam, and the distance would have only increased among them and there would be no 'On your left'.
+Similarly, if there was no cycle, the fast pointer would cross the linked list and reach null. But since there is, it will circle around the same path and hence,
+they will meet.
+
+Now, after they meet we set the slow pointer again to nums[0]. We don't change the fast pointer and let it be in the same point where the slow and the fast pointer
+had earlier met in the first phase. Now, we move both the slow and the fast pointer one step at a time, untill slow = fast. The number where slow = fast is the no
+that repeats.
+
+class Solution:
+    def findDuplicate(self, nums: List[int]) -> int:
+        slow = nums[0]
+        fast = nums[0]
+        while True:
+            slow = nums[slow]
+            fast = nums[nums[fast]]
+            if slow == fast:
+                break
+        slow = nums[0]
+        while slow != fast:
+            slow = nums[slow]
+            fast = nums[fast]
+        return slow
