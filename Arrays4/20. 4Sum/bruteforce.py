@@ -14,3 +14,4 @@ class Solution:
                             st.add(tuple(temp))
         final_array = [list(x) for x in st]      
         return final_array
+#Time limit exceeded -> 282/294 test cases passed
