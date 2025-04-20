@@ -44,3 +44,14 @@ class Solution:
             prev.next = None
             print('Carry is zero')
         return start
+# Runtime
+# 7
+# ms
+# Beats
+# 32.19%
+# Analyze Complexity
+# Memory
+# 17.85
+# MB
+# Beats
+# 57.58%
