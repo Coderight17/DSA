@@ -29,3 +29,17 @@ class Solution:
             node = node.next
             second_half = second_half.next
         return True
+'''
+Runtime
+40
+ms
+Beats
+37.31%
+
+Memory
+34.65
+MB
+Beats
+92.79%
+
+'''
