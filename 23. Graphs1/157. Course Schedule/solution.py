@@ -1,3 +1,4 @@
+#Finding cycle in a directed graph using DFS
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
         def dfs_visit(graph,visited,u):
